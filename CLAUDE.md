@@ -1,4 +1,8 @@
-# FixIt – project notes for Claude
+# Text Fixer (formerly "FixIt") – project notes for Claude
+
+**Name:** the user renamed the app to **Text Fixer** (Nov 2026) for easier understanding. All user-visible text says "Text Fixer". Internal names deliberately stay "FixIt": the settings folder `%APPDATA%\FixIt` (keeps users' keys), the single-instance mutex (blocks old and new running together), the Android package `com.fixit.app` (so updates install in place), and code identifiers and style names. Windows exe: `TextFixer.exe` in `%LOCALAPPDATA%\Programs\TextFixer`, with "Text Fixer.lnk" shortcuts. `install.ps1` removes the old FixIt install, shortcuts and Run entry. Run key value is `TextFixer` (startup.py cleans up the legacy `FixIt`). Android: menu labels "Text Fixer" / "Text Fixer Reply"; APK `TextFixer-android.apk`; version 1.1 (code 2).
+
+**GitHub:** public repo <https://github.com/MainulKanon/Text-Fixer> (`origin`, branch `main`). README.md is Bangla-first with an English developer section. Binaries are **not** committed (`.gitignore`: dist, build, .venv, apk, video out/audio). They go in GitHub Releases (`gh release create vX dist\TextFixer.exe dist\TextFixer-android.apk`); v1.0 is published. Before every push, grep for keys (`gsk_`, `sk-or-v1-`, `AQ.`, `sk_`, `AIza`). Commit messages go through a file (`git commit -F`) because PowerShell breaks quotes in here-strings passed to git.
 
 Windows-only Python tray app: a floating ✨ button (or a hotkey) fixes the text in any focused text box using an AI API. There's also a Reply assistant that drafts a reply to a selected or pasted message.
 
