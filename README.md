@@ -4,6 +4,8 @@
 
 *Fix your English in any app with one click, using free AI. Works on Windows and Android.*
 
+🌐 **ওয়েবসাইট / Website:** <https://mainulkanon.github.io/Text-Fixer/>
+
 Fiverr, Gmail, WhatsApp, Slack, যেখানেই লিখুন, Text Fixer আপনার লেখার গ্রামার ঠিক করে, মেসেজটাকে স্বাভাবিক আর প্রফেশনাল করে দেয়। ক্লায়েন্টের মেসেজের রিপ্লাইও লিখে দেয়, আর বাংলা থেকে ইংরেজিও করে।
 
 ---
