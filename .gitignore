@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Build output (FixIt.exe and the APK are published as GitHub Release files instead)
+build/
+dist/
+*.spec
+
+# Android build files
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.apk
+
+# Generated media (kept out to keep the repo small; scripts to recreate them are included)
+marketing/video/out/
+marketing/video/audio/
+
+# Local settings / secrets – API keys live in %APPDATA%\FixIt\config.json, never in this folder
+config.json
+.env

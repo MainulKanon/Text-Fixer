@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Text Fixer</string>
+    <!-- Labels shown in the text-selection menu -->
+    <string name="action_fix">Text Fixer</string>
+    <string name="action_reply">Text Fixer Reply</string>
+
+    <string name="close">Close</string>
+    <string name="replace">Replace</string>
+    <string name="try_again">Try again</string>
+    <string name="style">Style ▾</string>
+    <string name="copy_instead">Copy instead</string>
+    <string name="copied">Copied</string>
+    <string name="working">%1$s…</string>
+    <string name="title_fmt">%1$s · %2$s</string>
+    <string name="looks_good">Already looks good · %1$s</string>
+    <string name="no_text">No text selected. Select some text, then tap Text Fixer.</string>
+    <string name="no_key">Add a free Groq API key in the Text Fixer app first.</string>
+    <string name="open_settings">Open Text Fixer</string>
+
+    <string name="reply_title">Reply</string>
+    <string name="note_hint">Optional: what to say (e.g. yes, $50, Friday)</string>
+    <string name="generate">Generate</string>
+    <string name="regenerate">Regenerate</string>
+    <string name="reply_hint">Your reply will appear here. You can edit it.</string>
+    <string name="writing_reply">Writing reply…</string>
+    <string name="reply_done">Done via %1$s. Edit if needed, then copy.</string>
+    <string name="copy_reply">Copy reply</string>
+    <string name="reply_copied">Reply copied. Paste it into the reply box.</string>
+
+    <string name="how_title">How to use</string>
+    <string name="how_body">1. Type in any app: Fiverr, WhatsApp, Gmail…\n2. Select the text, then tap <b>Text Fixer</b> in the menu (it may be under ⋮).\n3. Check the preview and tap <b>Replace</b>.\n\nTo answer a message: select it and tap <b>Text Fixer Reply</b>.</string>
+    <string name="keys_title">AI providers (free)</string>
+    <string name="groq_hint">Recommended: fastest, about 1 second.</string>
+    <string name="get_key">Get free key</string>
+    <string name="key_hint">Paste your API key</string>
+    <string name="model_hint">Model</string>
+    <string name="show">Show</string>
+    <string name="hide">Hide</string>
+    <string name="primary">Use first</string>
+    <string name="primary_hint">If it fails or hits its limit, Text Fixer tries the others that have a key.</string>
+    <string name="prompt_title">Main prompt</string>
+    <string name="reset_prompt">Reset to default</string>
+    <string name="save">Save</string>
+    <string name="test">Test</string>
+    <string name="testing">Testing…</string>
+    <string name="saved">Saved</string>
+    <string name="test_ok">Works via %1$s:\n“%2$s”</string>
+    <string name="battery_note">Text Fixer never runs in the background. It only starts when you tap it in the text menu and closes when you\'re done, so it uses no battery while idle. Keys are encrypted on this phone.</string>
+</resources>

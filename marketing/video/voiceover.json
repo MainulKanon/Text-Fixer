@@ -1,0 +1,22 @@
+{
+  "en": [
+    "Every day, I write dozens of messages to clients. And before I hit send, I want them to sound right.",
+    "Grammarly fixes my grammar, but it doesn't make my message sound natural and professional. So I kept copying my text, opening ChatGPT, pasting it, copying the answer, and pasting it back. Thirty times a day.",
+    "So I built FixIt: a small Windows app that brings AI into every text box.",
+    "I type anywhere: Fiverr, Gmail, WhatsApp, Slack. A Fix grammar button appears. One click, and I see a preview with every change highlighted. If I like it, I hit Replace. If I change my mind, Ctrl+Z brings my original back.",
+    "I can try again or change the style: friendlier, shorter, or more professional. I can even write in Bangla and get clean English.",
+    "When a client sends me a message, I select it, press Ctrl+Shift+R, add a short note, and FixIt writes the full reply for me.",
+    "It runs on free AI (Groq, Gemini and OpenRouter) in about a second, and my keys stay on my own PC.",
+    "And the best part: I built it with the help of AI too. If you write to clients every day, comment \"FixIt\" and tell me if you'd use it."
+  ],
+  "bn": [
+    "প্রতিদিন ক্লায়েন্টদের অনেক মেসেজ লিখি। আর পাঠানোর আগে সবসময় চাই, মেসেজটা যেন ঠিকঠাক শোনায়।",
+    "Grammarly গ্রামার ঠিক করে, কিন্তু মেসেজটাকে স্বাভাবিক আর প্রফেশনাল করে না। তাই বারবার লেখা কপি করতাম, ChatGPT খুলে পেস্ট করতাম, উত্তর কপি করে আবার ফিরে এসে পেস্ট করতাম। দিনে ত্রিশবার।",
+    "তাই নিজেই বানালাম FixIt। একটা ছোট্ট Windows অ্যাপ, যেটা প্রতিটা টেক্সট বক্সে AI নিয়ে আসে।",
+    "যেকোনো জায়গায় টাইপ করি: Fiverr, Gmail, WhatsApp, Slack। উপরে একটা Fix grammar বাটন আসে। এক ক্লিকেই প্রিভিউ দেখায়, কোথায় কী বদলেছে সবুজ রঙে। পছন্দ হলে Replace। মত বদলালে Ctrl+Z চাপলেই আগের লেখা ফেরত।",
+    "চাইলে আবার চেষ্টা করা যায়, বা স্টাইল বদলানো যায়: আরও ফ্রেন্ডলি, ছোট, বা আরও প্রফেশনাল। এমনকি বাংলায় লিখলেও পরিষ্কার ইংরেজি পেয়ে যাই।",
+    "আর ক্লায়েন্ট কোনো মেসেজ পাঠালে, সেটা সিলেক্ট করে Ctrl+Shift+R চাপি, ছোট একটা নোট দিই, আর FixIt পুরো রিপ্লাই লিখে দেয়।",
+    "সবকিছু চলে ফ্রি AI দিয়ে: Groq, Gemini আর OpenRouter, মাত্র এক সেকেন্ডের মতো সময়ে। আর API key থাকে আমার নিজের পিসিতেই।",
+    "মজার ব্যাপার, অ্যাপটা বানিয়েছিও AI-এর সাহায্যে। আপনিও যদি প্রতিদিন ক্লায়েন্টদের সাথে কথা বলেন, কমেন্টে \"FixIt\" লিখুন, আর জানান আপনি এটা ব্যবহার করবেন কিনা।"
+  ]
+}
