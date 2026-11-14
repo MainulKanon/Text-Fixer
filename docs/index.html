@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text Fixer – Fix your English in any app</title>
+<meta name="description" content="Fix your English in any app with one click, using free AI. Free for Windows and Android. যেকোনো অ্যাপে এক ক্লিকে ইংরেজি ঠিক করুন।">
+<meta property="og:title" content="Text Fixer – Fix your English in any app">
+<meta property="og:description" content="One click to fix grammar and sound professional in Fiverr, Gmail, WhatsApp and more. Free for Windows and Android.">
+<meta property="og:image" content="https://mainulkanon.github.io/Text-Fixer/og.png">
+<meta property="og:url" content="https://mainulkanon.github.io/Text-Fixer/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237C4DFF'/%3E%3Cstop offset='1' stop-color='%23448AFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='24' cy='24' r='23' fill='url(%23g)'/%3E%3Cpath fill='%23fff' d='M21 12Q22.3 24 33 25.5Q22.3 27 21 39Q19.7 27 9 25.5Q19.7 24 21 12Z'/%3E%3Cpath fill='%23fff' d='M32 8Q32.6 13.4 37 14Q32.6 14.6 32 20Q31.4 14.6 27 14Q31.4 13.4 32 8Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F5FC; --surface:#FFFFFF; --surface-2:#F1EFF8; --ink:#1F1D2B; --muted:#5F5E6E; --line:#E3E1EE;
+  --accent:#534AB7; --accent-ink:#FFFFFF; --accent-soft:#EEEDFE; --accent-line:#C9C5F2; --accent-dark:#26215C;
+  --green-bg:#D7F2E5; --green-ink:#085041; --red:#A32D2D; --shadow:0 1px 2px rgba(30,20,80,.06),0 8px 24px rgba(30,20,80,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121118; --surface:#1C1B24; --surface-2:#24232E; --ink:#ECEBF4; --muted:#A4A2B4; --line:#2E2D3A;
+    --accent:#8F86F0; --accent-ink:#13112A; --accent-soft:#2A2750; --accent-line:#4A4590; --accent-dark:#CECBF6;
+    --green-bg:#16463A; --green-ink:#B6F0D6; --red:#F09595; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121118; --surface:#1C1B24; --surface-2:#24232E; --ink:#ECEBF4; --muted:#A4A2B4; --line:#2E2D3A;
+  --accent:#8F86F0; --accent-ink:#13112A; --accent-soft:#2A2750; --accent-line:#4A4590; --accent-dark:#CECBF6;
+  --green-bg:#16463A; --green-ink:#B6F0D6; --red:#F09595; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,"Noto Sans Bengali",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+html[lang="bn"] body{font-family:"Noto Sans Bengali",Inter,system-ui,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;color:var(--ink);text-decoration:none}
+.brand svg{width:34px;height:34px}
+.nav-right{display:flex;align-items:center;gap:8px}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.lang button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:14px;padding:4px 12px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.gh{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px}
+.gh:hover{background:var(--surface-2);color:var(--ink)}
+.gh svg{width:18px;height:18px}
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:40px 0 64px}
+.eyebrow{display:inline-block;background:var(--accent-soft);color:var(--accent-dark);border:1px solid var(--accent-line);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.1;margin:16px 0 14px;letter-spacing:-.02em;color:var(--accent-dark)}
+html[lang="bn"] h1{line-height:1.3;letter-spacing:0}
+.lead{font-size:clamp(17px,2vw,19px);color:var(--muted);margin:0 0 28px;max-width:34em}
+.dl{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:12px;text-decoration:none;border-radius:14px;padding:12px 20px;font-weight:600;transition:transform .12s ease,box-shadow .12s ease}
+.btn:active{transform:scale(.98)}
+.btn svg{width:26px;height:26px;flex:none}
+.btn small{display:block;font-weight:500;font-size:12px;opacity:.85}
+.btn-primary{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow)}
+.btn-primary:hover{box-shadow:0 2px 4px rgba(30,20,80,.1),0 12px 28px rgba(83,74,183,.3)}
+.btn-secondary{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.btn-secondary:hover{border-color:var(--accent-line)}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+/* demo mock */
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);position:relative}
+.demo-top{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:14px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.msg{background:var(--surface-2);border-radius:14px;padding:10px 14px;font-size:14px;width:fit-content;max-width:85%;margin-bottom:56px}
+.field-row{position:relative}
+.pill{position:absolute;right:0;top:-44px;display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent-dark);border:1px solid var(--accent-line);border-radius:999px;padding:5px 13px 5px 10px;font-size:13px;font-weight:600}
+.pill svg{width:15px;height:15px}
+.field{border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;font-size:15px;background:var(--surface)}
+.card{margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface)}
+.card .hd{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.card .old{text-decoration:line-through;color:var(--muted);font-size:13px;margin:8px 0 6px}
+.card .new{font-size:15px;line-height:1.6}
+.hl{background:var(--green-bg);color:var(--green-ink);border-radius:3px;padding:0 2px}
+.card .acts{display:flex;gap:8px;margin-top:12px}
+.mini{font-size:13px;border-radius:8px;padding:6px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.mini.p{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+/* sections */
+section{padding:56px 0}
+h2{font-size:clamp(26px,3.4vw,34px);line-height:1.25;margin:0 0 10px;color:var(--accent-dark)}
+.sub{color:var(--muted);margin:0 0 32px;max-width:40em}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.step::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent-dark);font-weight:700;margin-bottom:12px}
+.step h3,.feat h3{margin:0 0 6px;font-size:17px}
+.step p,.feat p{margin:0;color:var(--muted);font-size:15px}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.ico{width:40px;height:40px;border-radius:12px;background:var(--accent-soft);display:grid;place-items:center;margin-bottom:12px;color:var(--accent)}
+.ico svg{width:22px;height:22px}
+.platforms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.plat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px}
+.plat h3{display:flex;align-items:center;gap:10px;margin:0 0 4px;font-size:20px}
+.plat h3 svg{width:26px;height:26px;color:var(--accent)}
+.plat .meta{color:var(--muted);font-size:14px;margin:0 0 14px}
+.plat ol{margin:0 0 20px;padding-left:20px;color:var(--ink)}
+.plat li{margin:4px 0}
+.key{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:18px;padding:26px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.key h3{margin:0 0 6px;font-size:20px;color:var(--accent-dark)}
+.key p{margin:0;color:var(--ink)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--accent);font-weight:700}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+[data-bn]{display:none}
+html[lang="bn"] [data-en]{display:none}
+html[lang="bn"] [data-bn]{display:revert}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:32px;padding-top:16px}
+  .steps,.platforms{grid-template-columns:1fr}
+  .key{grid-template-columns:1fr}
+  .gh span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C4DFF"/><stop offset="1" stop-color="#448AFF"/></linearGradient></defs><circle cx="24" cy="24" r="23" fill="url(#lg)"/><path fill="#fff" d="M21 12Q22.3 24 33 25.5Q22.3 27 21 39Q19.7 27 9 25.5Q19.7 24 21 12Z"/><path fill="#fff" d="M32 8Q32.6 13.4 37 14Q32.6 14.6 32 20Q31.4 14.6 27 14Q31.4 13.4 32 8Z"/></svg>
+      Text Fixer
+    </a>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-lang="bn" aria-pressed="false">বাংলা</button>
+      </div>
+      <a class="gh" href="https://github.com/MainulKanon/Text-Fixer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="eyebrow"><span data-en>Free · Windows &amp; Android</span><span data-bn>ফ্রি · Windows ও Android</span></span>
+      <h1>
+        <span data-en>Fix your English in any app, with one click</span>
+        <span data-bn>যেকোনো অ্যাপে এক ক্লিকে ইংরেজি ঠিক করুন</span>
+      </h1>
+      <p class="lead">
+        <span data-en>Type in Fiverr, Gmail, WhatsApp or Slack. Text Fixer corrects the grammar and makes your message sound natural and professional. It can even write replies to clients and translate Bangla to English.</span>
+        <span data-bn>Fiverr, Gmail, WhatsApp, Slack, যেখানেই লিখুন। Text Fixer গ্রামার ঠিক করে, মেসেজটাকে স্বাভাবিক আর প্রফেশনাল করে দেয়। ক্লায়েন্টের রিপ্লাইও লিখে দেয়, আর বাংলা থেকে ইংরেজি করে।</span>
+      </p>
+      <div class="dl" id="download">
+        <a class="btn btn-primary" href="https://github.com/MainulKanon/Text-Fixer/releases/latest/download/TextFixer.exe">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3zM11.5 4.2 21 3v8.5h-9.5zM3 12.5h7.5v7.1L3 18.5zM11.5 12.5H21V21l-9.5-1.2z"/></svg>
+          <span><span data-en>Download for Windows</span><span data-bn>Windows এর জন্য ডাউনলোড</span><small>Windows 10 / 11 · 45 MB</small></span>
+        </a>
+        <a class="btn btn-secondary" href="https://github.com/MainulKanon/Text-Fixer/releases/latest/download/TextFixer-android.apk">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color:#3DDC84"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38L16.9 9.13a11.4 11.4 0 0 0-9.8 0L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+          <span><span data-en>Download for Android</span><span data-bn>Android এর জন্য ডাউনলোড</span><small>Android 7+ · 52 KB</small></span>
+        </a>
+      </div>
+      <p class="note">
+        <span data-en>Free, with the source code on GitHub. Needs a free AI key (takes 1 minute, see below).</span>
+        <span data-bn>সম্পূর্ণ ফ্রি। একটা ফ্রি AI key লাগবে (১ মিনিটের কাজ, নিচে দেখুন)।</span>
+      </p>
+    </div>
+
+    <div class="demo" aria-hidden="true">
+      <div class="demo-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp; Client chat</div>
+      <div class="msg">Hi! Any update on my logo?</div>
+      <div class="field-row">
+        <span class="pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 3Q11 12 19 13Q11 14 10 22Q9 14 1 13Q9 12 10 3Z"/><path d="M18.5 1Q19 4.5 22.5 5Q19 5.5 18.5 9Q18 5.5 14.5 5Q18 4.5 18.5 1Z"/></svg>Fix grammar</span>
+        <div class="field">hi sir, i has complete the logo yesterday pls check</div>
+      </div>
+      <div class="card">
+        <div class="hd"><span>✨ Fix grammar · Groq</span><span>✕</span></div>
+        <div class="old">hi sir, i has complete the logo yesterday pls check</div>
+        <div class="new"><span class="hl">Hi</span> sir, <span class="hl">I completed</span> the logo yesterday. <span class="hl">Please</span> check <span class="hl">it.</span></div>
+        <div class="acts"><span class="mini p">Replace</span><span class="mini">↻ Try again</span><span class="mini">Copy</span></div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span data-en>How it works</span><span data-bn>কীভাবে কাজ করে</span></h2>
+    <p class="sub"><span data-en>No more copying your message into ChatGPT and back.</span><span data-bn>বারবার ChatGPT-তে কপি-পেস্ট করার দিন শেষ।</span></p>
+    <div class="steps">
+      <div class="step">
+        <h3><span data-en>Type anywhere</span><span data-bn>যেকোনো জায়গায় লিখুন</span></h3>
+        <p><span data-en>Fiverr inbox, Gmail, WhatsApp, Slack, Notepad: any text box.</span><span data-bn>Fiverr inbox, Gmail, WhatsApp, Slack, Notepad: যেকোনো টেক্সট বক্সে।</span></p>
+      </div>
+      <div class="step">
+        <h3><span data-en>Click Fix grammar</span><span data-bn>Fix grammar চাপুন</span></h3>
+        <p><span data-en>On Windows a button appears above the box. On Android, select the text and tap Text Fixer.</span><span data-bn>Windows এ বক্সের উপরে বাটন আসে। Android এ লেখা সিলেক্ট করে Text Fixer চাপুন।</span></p>
+      </div>
+      <div class="step">
+        <h3><span data-en>Check and replace</span><span data-bn>দেখে Replace করুন</span></h3>
+        <p><span data-en>A preview shows every change in green. Happy? Replace. Ctrl+Z always brings your text back.</span><span data-bn>প্রিভিউতে সব পরিবর্তন সবুজ রঙে দেখায়। পছন্দ হলে Replace। Ctrl+Z দিলে আগের লেখা ফেরত।</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2><span data-en>Everything you need to write to clients</span><span data-bn>ক্লায়েন্টের সাথে লেখার জন্য যা যা দরকার</span></h2>
+    <p class="sub"><span data-en>Made by a freelancer, for freelancers.</span><span data-bn>একজন ফ্রিল্যান্সারের বানানো, ফ্রিল্যান্সারদের জন্য।</span></p>
+    <div class="feats">
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></div>
+        <h3><span data-en>Natural, professional English</span><span data-bn>স্বাভাবিক, প্রফেশনাল ইংরেজি</span></h3>
+        <p><span data-en>Not just grammar: it makes your message sound right for a client, and keeps your meaning, emojis, names and links.</span><span data-bn>শুধু গ্রামার না: মেসেজটা ক্লায়েন্টের জন্য ঠিকঠাক শোনায়। আপনার কথা, ইমোজি, নাম আর লিংক একই থাকে।</span></p>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></div>
+        <h3><span data-en>Change the style</span><span data-bn>স্টাইল বদলান</span></h3>
+        <p><span data-en>More professional, shorter, or friendlier, one tap away.</span><span data-bn>আরও প্রফেশনাল, ছোট, বা ফ্রেন্ডলি, এক ক্লিকে।</span></p>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg></div>
+        <h3><span data-en>Bangla to English</span><span data-bn>বাংলা থেকে ইংরেজি</span></h3>
+        <p><span data-en>Write in Bangla or Banglish and get clean English.</span><span data-bn>বাংলা বা Banglish এ লিখুন, পরিষ্কার ইংরেজি পান।</span></p>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></div>
+        <h3><span data-en>Writes replies for you</span><span data-bn>রিপ্লাই লিখে দেয়</span></h3>
+        <p><span data-en>Select a client's message, add a short note like "yes, $50, Friday", and get a full reply.</span><span data-bn>ক্লায়েন্টের মেসেজ সিলেক্ট করুন, ছোট নোট দিন যেমন "yes, $50, Friday", পুরো রিপ্লাই পেয়ে যাবেন।</span></p>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3><span data-en>About 1 second, free AI</span><span data-bn>প্রায় ১ সেকেন্ড, ফ্রি AI</span></h3>
+        <p><span data-en>Runs on free AI (Groq, Gemini, OpenRouter). If one hits its limit, it uses the next.</span><span data-bn>ফ্রি AI দিয়ে চলে (Groq, Gemini, OpenRouter)। একটার লিমিট শেষ হলে পরেরটা ব্যবহার করে।</span></p>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h3><span data-en>Private and light</span><span data-bn>নিরাপদ ও হালকা</span></h3>
+        <p><span data-en>Your keys stay on your device. On Android it never runs in the background, so no battery drain.</span><span data-bn>আপনার key আপনার ডিভাইসেই থাকে। Android এ ব্যাকগ্রাউন্ডে চলে না, তাই ব্যাটারি খরচ নেই।</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="install">
+  <div class="wrap">
+    <h2><span data-en>Install in 2 minutes</span><span data-bn>২ মিনিটে ইনস্টল</span></h2>
+    <p class="sub"><span data-en>Both apps are free. Pick yours.</span><span data-bn>দুটো অ্যাপই ফ্রি। আপনারটা বেছে নিন।</span></p>
+    <div class="platforms">
+      <div class="plat">
+        <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3zM11.5 4.2 21 3v8.5h-9.5zM3 12.5h7.5v7.1L3 18.5zM11.5 12.5H21V21l-9.5-1.2z"/></svg>Windows</h3>
+        <p class="meta">Windows 10 / 11</p>
+        <ol>
+          <li><span data-en>Download and double-click <b>TextFixer.exe</b>.</span><span data-bn><b>TextFixer.exe</b> ডাউনলোড করে ডাবল-ক্লিক করুন।</span></li>
+          <li><span data-en>If you see "Windows protected your PC", click <b>More info → Run anyway</b>.</span><span data-bn>"Windows protected your PC" দেখালে <b>More info → Run anyway</b> চাপুন।</span></li>
+          <li><span data-en>Paste your free Groq key, click <b>Test</b>, then <b>Save</b>.</span><span data-bn>ফ্রি Groq key পেস্ট করুন, <b>Test</b> তারপর <b>Save</b>।</span></li>
+          <li><span data-en>Type anywhere and click <b>✨ Fix grammar</b>, or press <b>Ctrl+Shift+G</b>.</span><span data-bn>যেকোনো জায়গায় লিখে <b>✨ Fix grammar</b> চাপুন, বা <b>Ctrl+Shift+G</b>।</span></li>
+        </ol>
+        <a class="btn btn-primary" href="https://github.com/MainulKanon/Text-Fixer/releases/latest/download/TextFixer.exe">
+          <span><span data-en>Download for Windows</span><span data-bn>Windows এর জন্য ডাউনলোড</span></span>
+        </a>
+      </div>
+      <div class="plat">
+        <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color:#3DDC84"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38L16.9 9.13a11.4 11.4 0 0 0-9.8 0L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>Android</h3>
+        <p class="meta">Android 7.0+</p>
+        <ol>
+          <li><span data-en>Download <b>TextFixer-android.apk</b> on your phone and open it.</span><span data-bn>ফোনে <b>TextFixer-android.apk</b> ডাউনলোড করে খুলুন।</span></li>
+          <li><span data-en>Allow "Install unknown apps" if asked, then <b>Install</b>. (Xiaomi: open it from File Manager.)</span><span data-bn>"Install unknown apps" অনুমতি দিন, তারপর <b>Install</b>। (Xiaomi: File Manager থেকে খুলুন।)</span></li>
+          <li><span data-en>Open Text Fixer, paste your Groq key, tap <b>Save</b> and <b>Test</b>.</span><span data-bn>Text Fixer খুলে Groq key পেস্ট করুন, <b>Save</b> ও <b>Test</b> চাপুন।</span></li>
+          <li><span data-en>Select text in any app and tap <b>Text Fixer</b> (look under ⋮).</span><span data-bn>যেকোনো অ্যাপে লেখা সিলেক্ট করে <b>Text Fixer</b> চাপুন (⋮ এর ভেতরে থাকতে পারে)।</span></li>
+        </ol>
+        <a class="btn btn-secondary" href="https://github.com/MainulKanon/Text-Fixer/releases/latest/download/TextFixer-android.apk">
+          <span><span data-en>Download for Android</span><span data-bn>Android এর জন্য ডাউনলোড</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="key">
+      <div>
+        <h3><span data-en>Get your free AI key</span><span data-bn>ফ্রি AI key নিন</span></h3>
+        <p><span data-en>Sign in to Groq with Google, click <b>Create API Key</b>, and copy it (it starts with <code>gsk_</code>). Paste it into Text Fixer. That's it.</span><span data-bn>Google দিয়ে Groq এ সাইন ইন করুন, <b>Create API Key</b> চাপুন, key কপি করুন (<code>gsk_</code> দিয়ে শুরু)। Text Fixer এ পেস্ট করুন। ব্যস।</span></p>
+      </div>
+      <a class="btn btn-primary" href="https://console.groq.com/keys" target="_blank" rel="noopener">
+        <span><span data-en>Get free Groq key</span><span data-bn>ফ্রি Groq key নিন</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2><span data-en>Questions</span><span data-bn>প্রশ্ন ও উত্তর</span></h2>
+    <details>
+      <summary><span data-en>Is it really free?</span><span data-bn>সত্যিই কি ফ্রি?</span></summary>
+      <p><span data-en>Yes. The apps are free (source code on GitHub), and the AI services have free tiers that are plenty for daily client messages.</span><span data-bn>হ্যাঁ। অ্যাপ দুটো ফ্রি (সোর্স কোড GitHub এ), আর AI সার্ভিসগুলোর ফ্রি লিমিট প্রতিদিনের ক্লায়েন্ট মেসেজের জন্য যথেষ্ট।</span></p>
+    </details>
+    <details>
+      <summary><span data-en>Why does Windows say "Windows protected your PC"?</span><span data-bn>Windows কেন "Windows protected your PC" দেখায়?</span></summary>
+      <p><span data-en>Windows shows this for new apps that aren't from a big publisher. Click More info, then Run anyway. The full source code is on GitHub.</span><span data-bn>বড় কোম্পানির না হলে নতুন অ্যাপে Windows এটা দেখায়। More info চেপে Run anyway দিন। পুরো সোর্স কোড GitHub এ আছে।</span></p>
+    </details>
+    <details>
+      <summary><span data-en>Is my text or key sent anywhere?</span><span data-bn>আমার লেখা বা key কি কোথাও যায়?</span></summary>
+      <p><span data-en>Your key stays on your device. The text you choose to fix is sent only to the AI service you set up (for example Groq) to get the result. Nothing is sent to us.</span><span data-bn>key আপনার ডিভাইসেই থাকে। যে লেখা ঠিক করতে চান, শুধু সেটা আপনার বেছে নেওয়া AI সার্ভিসে (যেমন Groq) যায়। আমাদের কাছে কিছুই আসে না।</span></p>
+    </details>
+    <details>
+      <summary><span data-en>Does it drain my phone battery?</span><span data-bn>ফোনের ব্যাটারি কি খরচ হয়?</span></summary>
+      <p><span data-en>No. On Android it only starts when you tap it in the text menu and closes when you're done. No background service, no notifications.</span><span data-bn>না। Android এ শুধু মেনু থেকে চাপলে চালু হয়, কাজ শেষে বন্ধ হয়ে যায়। কোনো ব্যাকগ্রাউন্ড সার্ভিস বা নোটিফিকেশন নেই।</span></p>
+    </details>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>Text Fixer · <span data-en>Made with AI in Bangladesh</span><span data-bn>বাংলাদেশে AI দিয়ে তৈরি</span></span>
+    <a href="https://github.com/MainulKanon/Text-Fixer"><span data-en>Source code on GitHub</span><span data-bn>GitHub এ সোর্স কোড</span></a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('.lang button');
+  function setLang(lang, save) {
+    root.lang = lang;
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
+    if (save) { try { localStorage.setItem('tf-lang', lang); } catch (e) {} }
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('tf-lang'); } catch (e) {}
+  var nav = (navigator.language || '').toLowerCase();
+  setLang(saved || (nav.indexOf('bn') === 0 ? 'bn' : 'en'), false);
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang, true); }); });
+})();
+</script>
+</body>
+</html>
