@@ -68,5 +68,7 @@ Or open Text Fixer and use <b>Paste &amp; fix</b>, or Share any text to Text Fix
     <string name="clipboard_empty">Nothing copied yet. Copy some text first.</string>
     <string name="paste_first">Paste or type some text first.</string>
     <string name="done_via">Done via %1$s.</string>
-    <string name="paste_tip">Tip: in any app you can also select text and tap Text Fixer, or use Share → Text Fixer.</string>
+    <string name="paste_tip">Tip: in any app you can also select text and tap Text Fixer, or use Share → Text Fixer. Can\'t select a client\'s message? Copy it, paste it here and tap Write a reply.</string>
+    <string name="reply_to_this">✉ Write a reply to this message</string>
+    <string name="paste_message_first">Paste the client\'s message first, then tap Reply.</string>
 </resources>

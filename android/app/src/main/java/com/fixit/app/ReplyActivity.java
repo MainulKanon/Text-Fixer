@@ -34,6 +34,7 @@ public class ReplyActivity extends Activity {
         prefs = new Prefs(this);
 
         CharSequence text = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+        if (text == null) text = getIntent().getCharSequenceExtra(Intent.EXTRA_TEXT);   // "Share → Text Fixer Reply"
         message = text == null ? "" : text.toString().trim();
 
         ((TextView) findViewById(R.id.message)).setText(message);

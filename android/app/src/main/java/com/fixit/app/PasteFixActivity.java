@@ -66,6 +66,17 @@ public class PasteFixActivity extends Activity {
             input.requestFocus();
         });
         fix.setOnClickListener(v -> fix(false));
+        // Client messages often can't be selected (e.g. Fiverr chat bubbles), so: copy → paste here → Reply.
+        findViewById(R.id.reply).setOnClickListener(v -> {
+            String text = input.getText().toString().trim();
+            if (text.isEmpty()) {
+                setStatus(getString(R.string.paste_message_first), true);
+                return;
+            }
+            startActivity(new Intent(this, ReplyActivity.class)
+                    .putExtra(Intent.EXTRA_PROCESS_TEXT, text)
+                    .putExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, true));
+        });
         retry.setOnClickListener(v -> fix(true));
         copy.setOnClickListener(v -> {
             getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText("Text Fixer", fixed));
