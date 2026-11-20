@@ -29,7 +29,9 @@
     <string name="reply_copied">Reply copied. Paste it into the reply box.</string>
 
     <string name="how_title">How to use</string>
-    <string name="how_body">1. Type in any app: Fiverr, WhatsApp, Gmail…\n2. Select the text, then tap <b>Text Fixer</b> in the menu (it may be under ⋮).\n3. Check the preview and tap <b>Replace</b>.\n\nTo answer a message: select it and tap <b>Text Fixer Reply</b>.</string>
+    <string name="how_body">1. Type in any app: Fiverr, WhatsApp, Gmail…\n2. Select the text, then tap <b>Text Fixer</b> in the menu (it may be under ⋮).\n3. Check the preview and tap <b>Replace</b>.\n\nTo answer a message: select it and tap <b>Text Fixer Reply</b>.
+
+Or open Text Fixer and use <b>Paste &amp; fix</b>, or Share any text to Text Fixer.</string>
     <string name="keys_title">AI providers (free)</string>
     <string name="groq_hint">Recommended: fastest, about 1 second.</string>
     <string name="get_key">Get free key</string>
@@ -46,5 +48,25 @@
     <string name="testing">Testing…</string>
     <string name="saved">Saved</string>
     <string name="test_ok">Works via %1$s:\n“%2$s”</string>
-    <string name="battery_note">Text Fixer never runs in the background. It only starts when you tap it in the text menu and closes when you\'re done, so it uses no battery while idle. Keys are encrypted on this phone.</string>
+    <string name="battery_note">Text Fixer never runs in the background. It only runs while you have it open or tap it in the text menu, and stops when you\'re done, so it uses no battery while idle. Keys are encrypted on this phone.</string>
+    <!-- Paste & fix (main screen) -->
+    <string name="settings">Settings</string>
+    <string name="settings_title">Text Fixer settings</string>
+    <string name="key_banner">Add your free Groq key to start fixing text.</string>
+    <string name="add_key">Add key</string>
+    <string name="your_text">Your text</string>
+    <string name="paste">Paste</string>
+    <string name="clear">Clear</string>
+    <string name="input_hint">Paste or type your text here…</string>
+    <string name="fix">✨ Fix</string>
+    <string name="working_short">Working…</string>
+    <string name="result">Result (changes in green)</string>
+    <string name="copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="edit_this">Edit this</string>
+    <string name="copied_paste">Copied. Paste it anywhere.</string>
+    <string name="clipboard_empty">Nothing copied yet. Copy some text first.</string>
+    <string name="paste_first">Paste or type some text first.</string>
+    <string name="done_via">Done via %1$s.</string>
+    <string name="paste_tip">Tip: in any app you can also select text and tap Text Fixer, or use Share → Text Fixer.</string>
 </resources>

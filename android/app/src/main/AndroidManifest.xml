@@ -17,16 +17,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FixIt">
 
-        <!-- Settings screen (API keys, how to use). -->
+        <!-- Main screen: Paste & fix. Also receives "Share → Text Fixer" from any app. -->
         <activity
-            android:name=".MainActivity"
+            android:name=".PasteFixActivity"
             android:exported="true"
+            android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
         </activity>
+
+        <!-- Settings screen (API keys, how to use), opened from the ⚙ button. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/settings_title"
+            android:windowSoftInputMode="adjustResize" />
 
         <!-- "Text Fixer" in the text-selection menu: preview, then Replace. -->
         <activity
