@@ -14,13 +14,16 @@ import keyboard
 import psutil
 import win32api
 import win32gui
+import win32process
 from PySide6.QtCore import QObject, Signal
 
 from config import config
 
 from . import keys
+from .webview_wake import WebBoxFinder
 
 POLL = 0.2
+TYPING_WINDOW = 3.0   # s after a key press during which we look inside web-based apps for a text box
 
 
 class FocusWatcher(QObject):
@@ -57,6 +60,45 @@ class FocusWatcher(QObject):
                 name = ""
             self._pid_names[pid] = name
         return name
+
+    def _foreground_name(self) -> str:
+        try:
+            return self._proc_name(win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow())[1])
+        except Exception:
+            return ""
+
+    def _is_excluded(self, *names: str) -> bool:
+        excluded = {a.strip().lower() for a in config.get("excluded_apps", []) if a.strip()}
+        return any(n in excluded for n in names if n)
+
+    @staticmethod
+    def _is_app_frame(ctrl) -> bool:
+        """True if the reported focus is only an app's outer frame, so the real one may be in its web area.
+
+        If it's web content itself (framework "Chrome"), that report is right: never look for another box,
+        because web areas keep claiming focus in the background and the user may be in a password field.
+        """
+        try:
+            return ctrl is not None and ctrl.FrameworkId in ("Win32", "XAML") and not ctrl.IsPassword
+        except Exception:
+            return False
+
+    def _focused_web_box(self, auto, finder: WebBoxFinder, found_at: list):
+        """The focused text box inside a web-based app whose frame is all that UI Automation reports.
+
+        Searches only while the user is typing, and never in excluded apps: querying them would switch on
+        their accessibility mode (in VS Code that means screen-reader mode).
+        """
+        fg = win32gui.GetForegroundWindow()
+        box = finder.remembered(fg)
+        if box is not None:
+            return box
+        if time.time() - self._last_key >= TYPING_WINDOW or self._is_excluded(self._foreground_name()):
+            return None
+        box = finder.search(auto, fg, self._is_editable)
+        if box is not None:
+            found_at[:] = [time.time(), self._last_key]
+        return box
 
     @staticmethod
     def _is_editable(auto, ctrl) -> bool:
@@ -145,6 +187,8 @@ class FocusWatcher(QObject):
             focus_key_time = 0.0   # last-key time when focus entered this element
             shown_for = 0.0         # last-key time for which we positioned the button
             shown = False
+            finder = WebBoxFinder()
+            found_at: list = []     # [when a search found a web text box, the last key press by then]
 
             def hide():
                 nonlocal shown
@@ -163,13 +207,16 @@ class FocusWatcher(QObject):
 
                     ctrl = auto.GetFocusedControl()
                     if ctrl is None or not self._is_editable(auto, ctrl):
+                        ctrl = self._focused_web_box(auto, finder, found_at) if self._is_app_frame(ctrl) else None
+                    if ctrl is None:
                         if not self.hover:
                             hide()
                             current = None
                         continue
 
-                    excluded = {a.strip().lower() for a in config.get("excluded_apps", []) if a.strip()}
-                    if self._proc_name(ctrl.ProcessId) in excluded:
+                    # A web text box belongs to a helper process (msedgewebview2.exe), so also check the
+                    # app that owns the window.
+                    if self._is_excluded(self._proc_name(ctrl.ProcessId), self._foreground_name()):
                         hide()
                         continue
 
@@ -179,6 +226,10 @@ class FocusWatcher(QObject):
                         current = rid
                         focus_key_time = self._last_key
                         shown_for = 0.0
+                        if found_at:
+                            # We only found this box because the user was typing in it: count that typing.
+                            focus_key_time = found_at[1] - 0.001
+                            found_at.clear()
 
                     last = self._last_key
                     if last <= focus_key_time:
